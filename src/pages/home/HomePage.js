@@ -10,6 +10,7 @@ function HomePage(){
 
     const [topSelector, setTopSelector] = useState("alles");
     const [city, setCity] = useState("Utrecht")
+    const [rating, setRating] =useState(0)
 
     const stAppTypes = ["alles","Kroeg", "Club", "Bioscoop", "Restaurant", "Bar", "Cafe"]
     useEffect(() => function(){
@@ -32,7 +33,7 @@ function HomePage(){
                     <div className="home-options-side">
                         <h2>{city}</h2>
                         <h4>Ik heb honger</h4>
-                        <StarRating rating={3}/>
+                        <StarRating rating={rating} updateRating={setRating}/>
                     </div>
                     <div className="my-list-results">
                         <h4>hello</h4>
