@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #D96C06;
+    flex-basis: 120px;
+}
+
+.container-left{
+    display: flex;
+}
+
+.container-right{
+    display: flex;
+    align-items: center;
+}
+
+#userIcon{
+
+}
+
+h1{
+
+}

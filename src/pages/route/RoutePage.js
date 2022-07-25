@@ -1,6 +1,6 @@
 import React from "react";
 
-function SignUpPage(){
+function RoutePage(){
     return(
         <div>
             <h1>The start of something exciting</h1>
@@ -8,4 +8,4 @@ function SignUpPage(){
     )
 }
 
-export default SignUpPage;
+export default RoutePage;

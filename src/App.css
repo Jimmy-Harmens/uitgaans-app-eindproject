@@ -7,6 +7,12 @@
   pointer-events: none;
 }
 
+.page{
+  display: flex;
+  flex-direction: column;
+  background-color: #F5EFED;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

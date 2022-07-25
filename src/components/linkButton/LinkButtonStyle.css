@@ -1,0 +1,13 @@
+.link-button{
+    background: rgba(0%, 0%, 100%, 0);
+    border: 0;
+    font-size: 110%;
+}
+.link-button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-button:active{
+    text-decoration: underline;
+}

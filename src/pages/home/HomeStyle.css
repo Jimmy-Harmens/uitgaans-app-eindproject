@@ -1,0 +1,32 @@
+.home-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-options-top{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+
+}
+
+.home-content-bottom{
+    display: flex;
+    /*border: solid 1px black;*/
+    width: 100%;
+}
+
+.home-options-side{
+    display: flex;
+    flex-direction: column;
+    /*border: solid 1px black;*/
+    flex-basis: 30%;
+}
+
+.my-list-results{
+    display: flex;
+    flex-direction: column;
+    /*border: solid 1px black;*/
+    flex-basis: 70%;
+}

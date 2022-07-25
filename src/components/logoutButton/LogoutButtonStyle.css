@@ -1,0 +1,11 @@
+.logout-button{
+    margin-right: 15px;
+    background: rgba(0%, 0%, 100%, 0);
+    border: 0;
+    font-size: 110%;
+}
+
+.logout-button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
