@@ -1,0 +1,47 @@
+.stApp-suggestion{
+    display: flex;
+    align-items: center;
+    background-color: #DBD3C9;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.stApp-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.variable-info{
+    display: flex;
+    align-items: center;
+}
+
+.info-item{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#stApp-name{
+    margin: 0;
+}
+
+#separator{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#stApp-logo{
+    border: solid black;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+h5{
+    font-size: 130%;
+}
+
+p{
+    margin-top: 5px;
+}

@@ -1,0 +1,86 @@
+.venue-info{
+    display: flex;
+    width: 520px;
+    background-color: #DBD3C9;
+    justify-self: center;
+    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-header{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.venue-name{
+    display: flex;
+    position: relative;
+    background-color: #D3BEA2;
+    padding: 10px;
+    width: max-content;
+    bottom: 30px;
+    font-size: 200%;
+    align-items: center;
+}
+
+.star-container-venues{
+    display: flex;
+    position: relative;
+    bottom: 25px;
+    background-color: #D3BEA2;
+}
+
+.tags-grid{
+    display: grid;
+    width: 60%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: #D3BEA2;
+}
+
+.grid-item-top{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.grid-item-bottom{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.route-planner{
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.custom-dropdown{
+    cursor: pointer;
+}
+
+.route-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1CB5CD;
+    font-size: 350%;
+    cursor: pointer;
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.venue-name-container{
+    max-width: 300px;
+    text-align: center;
+}

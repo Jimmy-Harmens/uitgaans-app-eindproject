@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./StarRatingStyle.css"
 import empty from "../../assets/Empty_Star.png";
 import full from "../../assets/Full_Star.png"
 
@@ -15,7 +16,7 @@ function StarRating({rating, updateRating}){
                  onMouseLeave={(e) => setHoverState(0)}
                  height={starSize}
                  width={starSize}
-                 onClick={(e) => updateRating(1)}
+                 onClick={rating === hoverState ? (e) => updateRating(0) : (e) => updateRating(1)}
             />
             <img src={rating >= 2 || hoverState >= 2 ? full : empty}
                  alt="Two stars"
@@ -23,7 +24,7 @@ function StarRating({rating, updateRating}){
                  onMouseLeave={(e) => setHoverState(0)}
                  height={starSize}
                  width={starSize}
-                 onClick={(e) => updateRating(2)}
+                 onClick={rating === hoverState ? (e) => updateRating(0) : (e) => updateRating(2)}
             />
             <img src={rating >= 3 || hoverState >= 3 ? full : empty}
                  alt="Three stars"
@@ -31,7 +32,7 @@ function StarRating({rating, updateRating}){
                  onMouseLeave={(e) => setHoverState(0)}
                  height={starSize}
                  width={starSize}
-                 onClick={(e) => updateRating(3)}
+                 onClick={rating === hoverState ? (e) => updateRating(0) : (e) => updateRating(3)}
             />
             <img src={rating >= 4 || hoverState >= 4 ? full : empty}
                  alt="Four stars"
@@ -39,7 +40,7 @@ function StarRating({rating, updateRating}){
                  onMouseLeave={(e) => setHoverState(0)}
                  height={starSize}
                  width={starSize}
-                 onClick={(e) => updateRating(4)}
+                 onClick={rating === hoverState ? (e) => updateRating(0) : (e) => updateRating(4)}
             />
             <img src={rating === 5 || hoverState === 5 ? full : empty}
                  alt="Five stars"
@@ -47,7 +48,7 @@ function StarRating({rating, updateRating}){
                  onMouseLeave={(e) => setHoverState(0)}
                  height={starSize}
                  width={starSize}
-                 onClick={(e) => updateRating(5)}
+                 onClick={rating === hoverState ? (e) => updateRating(0) : (e) => updateRating(5)}
             />
         </div>
     )

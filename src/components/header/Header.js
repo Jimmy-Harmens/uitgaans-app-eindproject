@@ -3,12 +3,15 @@ import userIcon from "../../assets/User_Icon.png"
 import "./HeaderStyle.css"
 
 
-function Header({navItems}) {
+function Header({navItems,user}) {
     return(
         <header className="header">
             <div className="container-left">
-                <img id="userIcon" src={userIcon} alt="user icon" width="100" height="100"/>
-                <h1>sTapp</h1>
+                <div className="visual-personal">
+                    <img id="userIcon" src={userIcon} alt="user icon" width="80" height="80"/>
+                </div>
+                <h1>stApp</h1>
+                <div className="username-in-header">{user}</div>
             </div>
             <div className="container-right">
                 {navItems}

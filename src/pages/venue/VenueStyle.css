@@ -1,0 +1,34 @@
+.venue-page-content{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.page-container-left{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 20%;
+}
+
+.base-info{
+    display: flex;
+    justify-content: center;
+    flex-basis: 60%;
+}
+
+.extra-info{
+    display: flex;
+    flex-basis: 20%;
+    justify-content: center;
+}
+
+#hendrik{
+    cursor: pointer;
+}
+
+#beschrijving{
+    margin-top: 50px;
+    text-align: center;
+}

@@ -1,0 +1,58 @@
+#bottom-content{
+    display: flex;
+    justify-content: center;
+}
+
+#middle-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DBD3C9;
+    padding: 30px 30px 10px;
+}
+
+#login-button{
+    background-color: #1CB5CD;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 300px;
+
+}
+
+.login-field{
+    margin-bottom: 10px;
+    width: 300px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    border: 3px solid white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+#beer-logo{
+    margin-top: 10px;
+}
+
+#signup-suggestion{
+    display: flex;
+    background-color: #DBD3C9;
+    justify-content:  center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

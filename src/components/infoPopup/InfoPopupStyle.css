@@ -1,0 +1,13 @@
+.popup-container{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 350px;
+    background-color: rgb(219, 211, 201, 0.99);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
