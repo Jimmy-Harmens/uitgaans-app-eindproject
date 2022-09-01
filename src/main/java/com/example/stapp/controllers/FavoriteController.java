@@ -20,9 +20,6 @@ import java.util.Set;
 public class FavoriteController {
 
     @Autowired
-    private FavoritesRepository favoritesRepository;
-
-    @Autowired
     private UserService userService;
 
     @GetMapping

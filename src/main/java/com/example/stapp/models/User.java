@@ -1,5 +1,8 @@
 package com.example.stapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,6 +32,7 @@ public class User {
     @Column
     private String name;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "favorites",
@@ -37,6 +41,7 @@ public class User {
     )
     private List<StAppLocation> favorites = new ArrayList<>();
 
+    @JsonSerialize
     @ManyToMany
     @JoinTable(
             name = "ratings",
@@ -53,11 +58,28 @@ public class User {
             fetch = FetchType.EAGER)
     private Set<Authority> authorities = new HashSet<>();
 
-    @OneToMany(mappedBy = "gebruiker")
-    List<Rating> ratings;
+    @JsonIgnore
+    @OneToMany(
+            mappedBy = "gebruiker",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    List<Rating> ratings = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "owner")
-    Set<StAppLocation> ownedLocation;
+    List<StAppLocation> ownedLocation;
+
+    @JsonIgnore
+    @OneToOne
+    PictureDetails profilePicture;
+
+    public User(String username){
+        this.username = username;
+    }
+
+    public User() {
+
+    }
 
     public String getName() {
         return name;
@@ -83,6 +105,7 @@ public class User {
     public void setEmail(String email) { this.email = email;}
 
     public List<StAppLocation> getFavorites(){return favorites;}
+    public void setFavorites(List<StAppLocation> locations){this.favorites = locations;}
     public void addFavorite(StAppLocation location){this.favorites.add(location);}
     public void removeFavorite(StAppLocation location){this.favorites.remove(location);}
 
@@ -95,7 +118,22 @@ public class User {
     }
 
     public List<Rating> getRatings(){return ratings;}
+    public void setRatings(List<Rating> ratings){this.ratings = ratings;}
     public void addRating(Rating rating){this.ratings.add(rating);}
-    public void removeRating(Rating rating){this.ratings.add(rating);}
+    public void removeRating(Rating rating){this.ratings.remove(rating);}
 
+    public List<StAppLocation> getOwnedLocation() {
+        return ownedLocation;
+    }
+    public void setOwnedLocation(List<StAppLocation> ownedLocation) {
+        this.ownedLocation = ownedLocation;
+    }
+
+    public PictureDetails getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(PictureDetails profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 }

@@ -55,11 +55,22 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users").permitAll()
-//                .antMatchers(HttpMethod.GET,"/location").hasRole("ADMIN") //Het gaat om deze
+                .antMatchers(HttpMethod.GET, "/location").hasAnyRole("USER", "ADMIN") //Het gaat om deze
+                .antMatchers(HttpMethod.POST, "/location").hasAnyRole("BUSINESS", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/location/favorites").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/location/owned").hasAnyRole("BUSINESS", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/location/hardcode").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/location/byid").hasAnyRole("USER","ADMIN")
+                .antMatchers(HttpMethod.GET, "/favorite").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/favorite").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/ratings").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/ratings").hasAnyRole("USER","ADMIN")
+                .antMatchers(HttpMethod.POST, "/picture/location").hasAnyRole("BUSINESS","ADMIN")
+                .antMatchers(HttpMethod.POST, "/picture/user").hasAnyRole("BUSINESS","ADMIN")
                 .antMatchers(HttpMethod.POST,"/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
-                .antMatchers("/authenticated").authenticated()
-                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/authenticated").authenticated()//no touch
+                .antMatchers("/authenticate").permitAll()//also, no touch
                 .anyRequest().permitAll()
                 .and()
 

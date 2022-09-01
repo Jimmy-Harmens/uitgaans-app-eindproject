@@ -17,6 +17,15 @@ public class Favorite {
     @JoinColumn(name = "locationId")
     StAppLocation locatie;
 
+    public Favorite(User user, StAppLocation stAppLocation){
+        this.gebruiker = user;
+        this.locatie = stAppLocation;
+    }
+
+    public Favorite() {
+
+    }
+
     public User getGebruiker() {
         return gebruiker;
     }

@@ -1,5 +1,6 @@
 package com.example.stapp.dtos;
 
+import com.example.stapp.models.PictureDetails;
 import com.example.stapp.models.Rating;
 import com.example.stapp.models.StAppLocation;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -22,6 +23,9 @@ public class UserDto {
     public List<StAppLocation> favorites;
     @JsonSerialize
     public List<Rating> ratings;
+    @JsonSerialize
+    public List<StAppLocation> owned;
+    public PictureDetails profilePicture;
 
     public String getName() {
         return name;
@@ -90,4 +94,20 @@ public class UserDto {
     public List<Rating> getRatings(){return ratings;}
 
     public void setRatings(List<Rating> ratings){this.ratings = ratings;}
+
+    public List<StAppLocation> getOwned() {
+        return owned;
+    }
+
+    public void setOwned(List<StAppLocation> owned) {
+        this.owned = owned;
+    }
+
+    public PictureDetails getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(PictureDetails profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 }

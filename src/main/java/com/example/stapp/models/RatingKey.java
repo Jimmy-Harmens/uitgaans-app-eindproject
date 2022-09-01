@@ -11,4 +11,13 @@ class RatingKey implements Serializable {
 
     @Column(name = "locationId")
     Long locationId;
+
+    public RatingKey(String username, Long locationId) {
+        this.username = username;
+        this.locationId = locationId;
+    }
+
+    public RatingKey() {
+
+    }
 }

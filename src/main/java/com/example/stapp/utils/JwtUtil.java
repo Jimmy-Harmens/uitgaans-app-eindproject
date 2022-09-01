@@ -1,8 +1,12 @@
 package com.example.stapp.utils;
 
+import com.example.stapp.models.Authority;
+import com.example.stapp.services.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,9 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtil {
+
+    @Autowired
+    UserService userService;
 
     private final static String SECRET_KEY = "j28&n%bdk!n1m/kdf+]}kfdqq@hd713s";
 
@@ -39,6 +46,17 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        boolean isBusiness = false;
+        for(GrantedAuthority authority : userDetails.getAuthorities()){
+            if(authority.getAuthority().equalsIgnoreCase("ROLE_BUSINESS")){
+                isBusiness = true;
+                break;
+            }
+        }
+        if(userService.getUser(userDetails.getUsername()).getProfilePicture() != null){
+            claims.put("profilePictureUrl", userService.getUser(userDetails.getUsername()).getProfilePicture().getUrl());
+        }
+        claims.put("isBusiness", isBusiness);
         return createToken(claims, userDetails.getUsername());
     }
 

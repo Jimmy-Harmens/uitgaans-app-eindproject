@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface StAppLocationRepository extends JpaRepository<StAppLocation, String> {
+public interface StAppLocationRepository extends JpaRepository<StAppLocation, Long> {
     List<StAppLocation> findByCity(String city);
 
-    StAppLocation findByLocationId(long id);
+    StAppLocation findByLocationId(Long id);
 }

@@ -2,7 +2,8 @@ package com.example.stapp.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Rating")
+@Table(name = "Rating")
 public class Rating {
     @EmbeddedId
     RatingKey id;
@@ -17,13 +18,21 @@ public class Rating {
     @JoinColumn(name = "locationId")
     StAppLocation locatie;
 
+    @Column
     int rating;
 
     public Rating(User gebruiker, StAppLocation location, int rating){
         this.gebruiker = gebruiker;
         this.locatie = location;
         this.rating = rating;
-        this.id = new RatingKey();
+        this.id = new RatingKey(gebruiker.getUsername(), location.getLocationId());
+    }
+
+    public Rating(String gebruiker, Long locationId, int rating){
+        this.gebruiker = new User(gebruiker);
+        this.locatie = new StAppLocation(locationId);
+        this.rating = rating;
+        this.id = new RatingKey(gebruiker, locationId);
     }
 
     public Rating() {

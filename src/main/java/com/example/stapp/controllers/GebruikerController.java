@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -26,25 +27,29 @@ public class GebruikerController {
     @Autowired
     private UserService userService;
 
-    @GetMapping({"/login"})
-    public ResponseEntity<Object> getUser(@RequestParam String username, @RequestParam String password){
-        UserDto userDto = userService.getUser(username);
-        if (userDto.password.equals(password)){
-            return new ResponseEntity<>(userDto, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-    }
-
     @PostMapping(value = "/users")
-    public ResponseEntity<Object> createKlant(@RequestBody UserDto dto) {;
-
+    public ResponseEntity<Object> createKlant(@RequestBody UserDto dto, @RequestParam boolean isBusiness) {;
+        String encryptedPW = BCrypt.hashpw(dto.password,"");
+        dto.setPassword(encryptedPW);
         String newUsername = userService.createUser(dto);
+        if(newUsername.equalsIgnoreCase("Jimmy") && newUsername.equals(dto.getUsername())){
+            userService.addAuthority(newUsername, "ROLE_ADMIN");
+
+        }
+        if(isBusiness && newUsername.equals(dto.getUsername())){
+            userService.addAuthority(newUsername, "ROLE_BUSINESS");
+        }
         if(newUsername.equals(dto.getUsername())){
-            userService.addAuthority(newUsername, "ADMIN");
+            userService.addAuthority(newUsername, "ROLE_USER");
             return new ResponseEntity<>(newUsername, HttpStatus.CREATED);
         }else{
             return new ResponseEntity<>(newUsername, HttpStatus.OK);
         }
+    }
+
+    @GetMapping(value = "/boss")
+    public ResponseEntity<Object> isTheBossHome(){
+        boolean isBossHome = userService.findTheBoss();
+        return new ResponseEntity<>(isBossHome, HttpStatus.OK);
     }
 }

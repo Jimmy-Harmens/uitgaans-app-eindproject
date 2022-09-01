@@ -32,7 +32,7 @@ public class AuthenticationController {
     @GetMapping(value = "/authenticated")
     public ResponseEntity<Object> authenticated(Authentication authentication, Principal principal) {
         return ResponseEntity.ok().body(principal);
-    }
+    }//wtf is dit? NIET AANRAKEN
 
     @PostMapping(value = "/authenticate")
     public ResponseEntity<Object> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
@@ -55,5 +55,4 @@ public class AuthenticationController {
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
-
 }
